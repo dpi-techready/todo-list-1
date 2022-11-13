@@ -41,9 +41,12 @@ class TodosController < ApplicationController
 
     if the_todo.valid?
       the_todo.save
-      redirect_to("/todos/#{the_todo.id}", { :notice => "Todo updated successfully."} )
+      # redirect_to("/todos/#{the_todo.id}", { :notice => "Todo updated successfully."} )
+      redirect_to("/", { :notice => "Todo updated successfully."} )
     else
-      redirect_to("/todos/#{the_todo.id}", { :alert => the_todo.errors.full_messages.to_sentence })
+      # redirect_to("/todos/#{the_todo.id}", { :alert => the_todo.errors.full_messages.to_sentence })
+      redirect_to("/", { :alert => the_todo.errors.full_messages.to_sentence })
+
     end
   end
 
