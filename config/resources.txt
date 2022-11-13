@@ -1,0 +1,19 @@
+#### Generate Resources ####
+
+Tables:
+
+Todo:
+rails generate draft:resource todo content:string status:string user_id:integer
+
+User:
+rails generate draft:account user
+
+Run rails db:migrate
+
+Associations
+
+Todo:
+has_many(:todos, { :class_name => "Todo", :foreign_key => "user_id", :dependent => :destroy })
+
+User:
+has_many(:todos, { :class_name => "Todo", :foreign_key => "user_id", :dependent => :destroy })
